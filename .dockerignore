@@ -1,0 +1,15 @@
+.git
+.gitignore
+README.md
+venv/
+venv313/
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+backend/.env
+backend/data/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd

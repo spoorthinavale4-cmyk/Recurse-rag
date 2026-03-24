@@ -89,12 +89,12 @@ The default frontend env points to `http://127.0.0.1:8000`.
 
 ### Backend on Koyeb
 
-The backend is deployable on Koyeb from GitHub using [`backend/Dockerfile`](/d:/Recurse_Rag/agentic-rag/backend/Dockerfile).
+The backend is deployable on Koyeb from GitHub using the repository root [`Dockerfile`](/d:/Recurse_Rag/agentic-rag/Dockerfile).
 
 When creating the Koyeb service:
 
 - Builder: `Dockerfile`
-- Work directory: `backend`
+- Work directory: leave empty
 - Dockerfile location: `Dockerfile`
 - Service type: `Web`
 
