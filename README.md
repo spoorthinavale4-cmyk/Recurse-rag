@@ -87,11 +87,18 @@ The default frontend env points to `http://127.0.0.1:8000`.
 
 ## Deployment Notes
 
-### Backend on Railway
+### Backend on Koyeb
 
-The backend includes [`backend/Dockerfile`](/d:/Recurse_Rag/agentic-rag/backend/Dockerfile) and [`backend/railway.toml`](/d:/Recurse_Rag/agentic-rag/backend/railway.toml).
+The backend is deployable on Koyeb from GitHub using [`backend/Dockerfile`](/d:/Recurse_Rag/agentic-rag/backend/Dockerfile).
 
-Set these Railway variables:
+When creating the Koyeb service:
+
+- Builder: `Dockerfile`
+- Work directory: `backend`
+- Dockerfile location: `Dockerfile`
+- Service type: `Web`
+
+Set these Koyeb environment variables:
 
 - `GROQ_API_KEY`
 - `QDRANT_URL`
@@ -105,13 +112,19 @@ Set these Railway variables:
 - `CACHE_MAX_SIZE`
 - `ALLOWED_ORIGINS`
 
-Set `ALLOWED_ORIGINS` to include your deployed frontend origin.
+Koyeb provides the `PORT` variable automatically for web services. The Docker command is configured to respect it.
+
+Because `backend/data/` is not committed, the deployed backend depends on your Qdrant collection already containing the ingested vectors.
+
+After deployment, verify:
+
+- `https://<your-koyeb-backend>/health`
 
 ### Frontend on Vercel
 
 Set:
 
-- `VITE_API_URL=https://your-backend-domain`
+- `VITE_API_URL=https://your-koyeb-backend-domain`
 
 Build command:
 
